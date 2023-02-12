@@ -1,6 +1,10 @@
 <mvc:View
 	controllerName="phoenix.zfr_nb_elemodata_10.controller.Object"
 	xmlns="sap.m"
+	xmlns:core = "sap.ui.core"
+	xmlns:layout = "sap.ui.layouyt"
+	xmlns:form = "sap.ui.layout.form"
+	xmlns:unified = "sap.ui.unified"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic"
 	xmlns:footerbar="sap.ushell.ui.footerbar">
@@ -17,13 +21,44 @@
 		</semantic:titleHeading>
 
 		<semantic:headerContent>
-			<ObjectNumber
-				number="{
-					path: 'Salary',
-					formatter: '.formatter.numberUnit'
-				}"
-				numberUnit="{Country}"
-			/>
+			<form:SimpleForm	title = "the Form"  layout = "ResponsivGridLayout"  >
+				<Label  text = "Test"  textDirection = "RTL"  design = "Bold" />
+				<Select id = "id_sel" items = "{/WorkerSet}"  width = "250px" >
+					<core:Item  key = "{Userid}"  text = "{Firstname}"  />
+				</Select>
+				
+				<Label  text = "ComnboBox"  textDirection = "RTL"  design = "Bold"  />
+				<ComboBox  items = "{/WorkerSet}"  width = "250px" >
+					<core:Item  key = "{Userid}"  text = "{Firstname}"  />
+				</ComboBox>	
+				
+				<Label  text = "MultiComnboBox"  textDirection = "RTL"  design = "Bold"  />
+				<MultiComboBox	 items = "{/WorkerSet}"  width = "250px"  >
+					<core:Item  key = "{Userid}"	text = "{Firstname}"  />
+				</MultiComboBox>
+				
+				<Label  text = "MultiInput"  textDirection = "RTL"  design = "Bold"  />
+				<MultiInput  suggestionItems = "{/WorkerSet}"  width = "250px"  >
+					<core:Item  key = "{Userid}"  text = "{Firstname}"  />
+				</MultiInput>
+ 				
+ 				<Label  text = "RadioButtonGroup"  textDirection = "RTL"  design = "Bold"  />
+ 				<RadioButtonGroup  buttons = "{/WorkerSet}"  columns = "6"  >
+ 					<RadioButton  text = "{Firstname}"  />
+ 				</RadioButtonGroup>
+ 				
+ 				<Label  text = "Tokenizer"  textDirection = "RTL"  design = "Bold"  />
+ 				<Tokenizer  tokens = "{/WorkerSet}"  >
+ 					<Token  text = "{Firstname}"  />
+ 				</Tokenizer>
+ 				
+ 				<Label text = "Breadcrumbs"  textDirection = "RTL"  design = "Bold"  />
+ 				<Breadcrumbs  links = "{/WorkerSet}"  >
+ 					<Link  text = "{Firstname}"  />
+ 				</Breadcrumbs>
+				<Label  text = ""  />
+				<Button  text = "Select"  press = "EH_buttPress"  width = "250px" />
+			</form:SimpleForm>
 		</semantic:headerContent>
 
 		<semantic:sendEmailAction>
